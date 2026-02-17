@@ -10,7 +10,6 @@ class UserRepository
     public function create(UserDTO $dto): User
     {
         $data = [
-            'name' => $dto->name,
             'email' => $dto->email,
             'password' => $dto->password,
         ];

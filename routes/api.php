@@ -12,3 +12,6 @@ Route::middleware('auth:api')->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
     Route::apiResource('tasks', TaskController::class);
 });
+Route::middleware('auth:api')->get('/me', function () {
+    return response()->json(['ok' => true]);
+});

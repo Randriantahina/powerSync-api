@@ -14,7 +14,6 @@ class TaskController extends Controller
     public function __construct(TaskService $service)
     {
         $this->service = $service;
-        $this->middleware('auth:api');
     }
 
     public function index()
