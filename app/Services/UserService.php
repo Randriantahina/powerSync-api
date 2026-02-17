@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\DTOs\LoginDTO;
 use App\DTOs\UserDTO;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Hash;
@@ -22,7 +23,7 @@ class UserService
         return $this->repo->create($dto);
     }
 
-    public function login(UserDTO $dto)
+    public function login(LoginDTO $dto)
     {
         $user = $this->repo->findByEmail($dto->email);
         if (! $user || ! Hash::check($dto->password, $user->password)) {

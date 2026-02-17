@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DTOs\LoginDTO;
 use App\DTOs\UserDTO;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
@@ -28,7 +29,7 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
-        $dto = new UserDTO($request->validated());
+        $dto = new LoginDTO($request->validated());
         $user = $this->service->login($dto);
         if (! $user) {
             return response()->json(['error' => 'Invalid credentials'], 401);
